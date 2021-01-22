@@ -18,12 +18,25 @@ export type Query = {
   books: Array<Book>;
 };
 
+export type Mutation = {
+  __typename?: 'Mutation';
+  addBookToCart: Book;
+};
+
+
+export type MutationAddBookToCartArgs = {
+  bookId: Scalars['String'];
+};
+
 export type Book = {
   __typename?: 'Book';
+  id: Scalars['String'];
+  inStock: Scalars['Boolean'];
   title: Scalars['String'];
   author: Scalars['String'];
   thumbnail: Scalars['String'];
   description: Scalars['String'];
+  price: Scalars['String'];
 };
 
 export type GetBooksQueryVariables = Exact<{ [key: string]: never; }>;
@@ -33,7 +46,7 @@ export type GetBooksQuery = (
   { __typename?: 'Query' }
   & { books: Array<(
     { __typename?: 'Book' }
-    & Pick<Book, 'title' | 'author' | 'thumbnail' | 'description'>
+    & Pick<Book, 'title' | 'author' | 'thumbnail' | 'inStock' | 'description'>
   )> }
 );
 
@@ -44,6 +57,7 @@ export const GetBooksDocument = gql`
     title
     author
     thumbnail
+    inStock
     description
   }
 }
