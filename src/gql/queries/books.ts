@@ -5,6 +5,8 @@ export default gql`
     books {
       title
       author
+      thumbnail
+      description
     }
   }
 `;
