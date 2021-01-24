@@ -27,8 +27,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "schema:local": "apollo schema:download --endpoint=http://localhost:3000/graphql graphql-schema.json",
-    "typegen:local": "npm run schema:local && graphql-codegen --config codegen.yml"
+    "schema": "apollo schema:download --endpoint=http://localhost:3000/graphql graphql-schema.json",
+    "typegen": "npm run schema && graphql-codegen --config codegen.yml"
   },
   "eslintConfig": {
     "extends": [

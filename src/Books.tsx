@@ -20,7 +20,7 @@ const Books: FunctionComponent<{}> = () => {
   const renderBooks = () =>
     data.books.map((book) => {
       return (
-        <div className="col-3">
+        <div className="col-3" key={book.id}>
           <Card className="w-100">
             <Card.Body>
               <Card.Img variant="top" src={book.thumbnail} />
