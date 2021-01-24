@@ -26,7 +26,9 @@ const Books: FunctionComponent<{}> = () => {
               <Card.Img variant="top" src={book.thumbnail} />
               <Card.Title className="mt-2">{book.title}</Card.Title>
               <Card.Text>{book.description}</Card.Text>
-              <Button variant="primary">Buy now</Button>
+              <Button disabled={!book.inStock} variant="primary">
+                {book.inStock ? "Buy Now" : "Out of Stock"}
+              </Button>
             </Card.Body>
           </Card>
         </div>

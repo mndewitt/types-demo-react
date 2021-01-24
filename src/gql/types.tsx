@@ -39,6 +39,20 @@ export type Book = {
   price: Scalars['String'];
 };
 
+export type PriceMetadata = {
+  __typename?: 'PriceMetadata';
+  currency: Currency;
+  price: Scalars['String'];
+  salePrice?: Maybe<Scalars['String']>;
+  inStock: Scalars['Boolean'];
+};
+
+export enum Currency {
+  Usd = 'USD',
+  Gbp = 'GBP',
+  Eur = 'EUR'
+}
+
 export type GetBooksQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -46,7 +60,7 @@ export type GetBooksQuery = (
   { __typename?: 'Query' }
   & { books: Array<(
     { __typename?: 'Book' }
-    & Pick<Book, 'id' | 'title' | 'author' | 'thumbnail' | 'inStock' | 'description'>
+    & Pick<Book, 'id' | 'title' | 'author' | 'thumbnail' | 'description' | 'inStock'>
   )> }
 );
 
@@ -58,8 +72,8 @@ export const GetBooksDocument = gql`
     title
     author
     thumbnail
-    inStock
     description
+    inStock
   }
 }
     `;

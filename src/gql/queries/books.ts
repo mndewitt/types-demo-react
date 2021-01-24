@@ -7,8 +7,8 @@ export default gql`
       title
       author
       thumbnail
-      inStock
       description
+      inStock
     }
   }
 `;
