@@ -60,7 +60,7 @@ export type GetBooksQuery = (
   { __typename?: 'Query' }
   & { books: Array<(
     { __typename?: 'Book' }
-    & Pick<Book, 'id' | 'title' | 'author' | 'thumbnail' | 'description' | 'inStock'>
+    & Pick<Book, 'id' | 'title' | 'author' | 'thumbnail' | 'description' | 'price' | 'inStock'>
   )> }
 );
 
@@ -73,6 +73,7 @@ export const GetBooksDocument = gql`
     author
     thumbnail
     description
+    price
     inStock
   }
 }

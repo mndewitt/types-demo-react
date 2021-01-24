@@ -8,6 +8,7 @@ export default gql`
       author
       thumbnail
       description
+      price
       inStock
     }
   }
